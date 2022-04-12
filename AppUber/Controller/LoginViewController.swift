@@ -49,8 +49,8 @@ final class LoginViewController: UIViewController {
     
     func configureConstraints() {
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor)
-        titleLabel.centerX(inView: view
-        )
+        titleLabel.centerX(inView: view)
+        
        
 //        setNeedsStatusBarAppearanceUpdate()
     }
