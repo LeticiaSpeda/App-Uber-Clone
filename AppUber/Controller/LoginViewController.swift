@@ -48,10 +48,10 @@ final class LoginViewController: UIViewController {
     }
     
     func configureConstraints() {
-        NSLayoutConstraint.activate([
-        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-        ])
+        titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor)
+        titleLabel.centerX(inView: view
+        )
+       
 //        setNeedsStatusBarAppearanceUpdate()
     }
 }
