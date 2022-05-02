@@ -19,6 +19,29 @@ final class LoginViewController: UIViewController {
         return label
     }()
     
+    private lazy var emailConteinerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
+        let image = UIImage(systemName: "envelope")
+        let imageView = UIImageView(image: image)
+        imageView.tintColor = .white
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(imageView)
+        imageView.centerY(inView: view)
+        imageView.anchor(left: view.leftAnchor, paddingLeft: 8, width: 24, height: 24)
+        
+        return view
+    }()
+    
+    private lazy var emailTextField: UITextField = {
+        let tf = UITextField()
+        tf.borderStyle = .none
+        tf.font = UIFont.systemFont(ofSize: 16)
+        tf.textColor = .white
+        tf.keyboardAppearance = .dark
+        tf.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        return tf
+    }()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -34,6 +57,8 @@ final class LoginViewController: UIViewController {
     
     func configureHierarchy() {
         view.addSubview(titleLabel)
+        view.addSubview(emailConteinerView)
+        
     }
     
     func configureStyle() {
@@ -50,6 +75,15 @@ final class LoginViewController: UIViewController {
     func configureConstraints() {
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor)
         titleLabel.centerX(inView: view)
+        
+        emailConteinerView.anchor(top: titleLabel.bottomAnchor,
+                                  left: view.leftAnchor,
+                                  right: view.rightAnchor,
+                                  paddingTop: 40,
+                                  paddingLeft: 16,
+                                  paddingRight: -16,
+                                  height: 50)
+        
         
        
 //        setNeedsStatusBarAppearanceUpdate()
