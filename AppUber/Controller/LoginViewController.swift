@@ -21,7 +21,6 @@ final class LoginViewController: UIViewController {
     
     private lazy var emailConteinerView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
         let image = UIImage(systemName: "envelope")
         let imageView = UIImageView(image: image)
         imageView.tintColor = .white
@@ -29,6 +28,17 @@ final class LoginViewController: UIViewController {
         view.addSubview(imageView)
         imageView.centerY(inView: view)
         imageView.anchor(left: view.leftAnchor, paddingLeft: 8, width: 24, height: 24)
+        view.addSubview(emailTextField)
+        emailTextField.centerY(inView: view)
+        emailTextField.anchor(left: imageView.rightAnchor,
+                              bottom: view.bottomAnchor,
+                              right: view.rightAnchor,
+                              paddingLeft: 8,
+                              paddingBotton: 8)
+        let separatorView = UIView()
+        separatorView.backgroundColor = .lightGray
+        view.addSubview(separatorView)
+        separatorView.anchor(left: view.leftAnchor, bottom: emailTextField.bottomAnchor, right: view.rightAnchor,paddingLeft: 8, height: 0.75)
         
         return view
     }()
@@ -58,7 +68,6 @@ final class LoginViewController: UIViewController {
     func configureHierarchy() {
         view.addSubview(titleLabel)
         view.addSubview(emailConteinerView)
-        
     }
     
     func configureStyle() {
@@ -83,6 +92,7 @@ final class LoginViewController: UIViewController {
                                   paddingLeft: 16,
                                   paddingRight: -16,
                                   height: 50)
+        
         
         
        

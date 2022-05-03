@@ -27,7 +27,7 @@ extension UIView {
             leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
         }
         if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: bottomAnchor, constant: -paddingBotton).isActive = true
+            bottomAnchor.constraint(equalTo: bottom, constant: -paddingBotton).isActive = true
         }
         if let right = right {
             rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true
